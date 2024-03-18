@@ -1,0 +1,4 @@
+services:
+  - name: app
+    env: node
+    startCommand: npm start
