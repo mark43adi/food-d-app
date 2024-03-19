@@ -83,9 +83,19 @@ The database schema consists of three main tables:
      - `organization_id` is a foreign key referencing `id` in `Organization` table.
      - `item_id` is a foreign key referencing `id` in `Item` table.
 
-### Coding Standards
+### Explanation:
 
-The database schema and SQL queries adhere to coding standards by using proper naming conventions, data types, and constraints. The tables are normalized to reduce redundancy and ensure data integrity. Foreign key constraints are used to maintain referential integrity between tables.
+Dynamic Pricing Calculation: `The Pricing table includes columns for base_distance_in_km, km_price, and fix_price, allowing for dynamic calculation of delivery costs based on various factors such as distance and item type.
+Pricing can be dynamically determined based on the provided parameters (e.g., base distance, per km price) during the pricing calculation process.`
+Database Design
+The schema follows a normalized structure with separate tables for organizations, items, and pricing information, promoting data integrity and reducing redundancy.
+Foreign key constraints are utilized to maintain referential integrity between related tables (Organization, Item, and Pricing), ensuring consistency in the data.
+Adherence to Coding Standards
+Column names are descriptive and follow a consistent naming convention (e.g., snake_case), enhancing readability and maintainability.
+Data types are appropriately chosen based on the nature of the data being stored, ensuring efficient storage and retrieval.
+Primary keys are defined for each table using the SERIAL data type, providing unique identifiers for records.
+Constraints such as NOT NULL are applied to ensure data integrity and prevent null values where necessary.
+Overall, the provided database schema effectively supports dynamic pricing calculation, follows good database design principles, and adheres to coding standards, thereby laying a solid foundation for the food delivery application's backend system.
 
 ## Usage
 
