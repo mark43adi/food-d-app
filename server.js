@@ -13,7 +13,7 @@ const port = process.env.PORT || 8000;
 app.use(bodyParser);
 app.use(
   cors({
-    origin: `http://localhost:${port}/`,
+    origin: "*",
   })
 );
 
