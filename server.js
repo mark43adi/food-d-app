@@ -4,6 +4,8 @@ const PricingService = require("./pricing.service");
 const swaggerUi = require("swagger-ui-express");
 const swaggerJsdoc = require("swagger-jsdoc");
 const cors = require("cors");
+const YAML = require("yamljs");
+const pricingRoutes = require("./routes/pricingRoutes");
 
 const app = express();
 const port = 3000;
@@ -33,7 +35,12 @@ const options = {
 
 const swaggerSpec = swaggerJsdoc(options);
 
-app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
+// app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
+app.use(
+  "/api-docs",
+  swaggerUi.serve,
+  swaggerUi.setup(YAML.load("./docs/swagger.yaml"))
+);
 
 /**
  * @swagger
@@ -94,6 +101,8 @@ app.post("/calculate-price", async (req, res) => {
     res.status(500).send("Error calculating price");
   }
 });
+
+app.use("/pricing", pricingRoutes);
 
 app.listen(port, () => {
   console.log(`Server listening on port ${port}`);
