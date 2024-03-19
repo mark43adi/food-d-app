@@ -50,6 +50,43 @@ This repository contains the backend implementation for a food delivery app, foc
 - **Alternative API:**
   - Ideal for applications requiring dynamic pricing configurations that can be stored and managed in a database.
 
+### Database Design
+
+The database schema consists of three main tables:
+
+1. **Organization:**
+
+   - Table name: `Organization`
+   - Fields:
+     - `id` (Primary Key): Integer, auto-incremented ID of the organization.
+     - `name`: String, name of the organization.
+
+2. **Item:**
+
+   - Table name: `Item`
+   - Fields:
+     - `id` (Primary Key): Integer, auto-incremented ID of the item.
+     - `type`: String, type of the item (e.g., "perishable", "non-perishable").
+     - `description`: String, description of the item.
+
+3. **Pricing:**
+   - Table name: `Pricing`
+   - Fields:
+     - `id` (Primary Key): Integer, auto-incremented ID of the pricing.
+     - `organization_id`: Integer, ID of the organization (foreign key referencing Organization table).
+     - `item_id`: Integer, ID of the item (foreign key referencing Item table).
+     - `zone`: String, zone for the pricing.
+     - `base_distance_in_km`: Integer, base distance in kilometers.
+     - `km_price`: Integer, price per kilometer.
+     - `fix_price`: Integer, fixed price.
+   - Constraints:
+     - `organization_id` is a foreign key referencing `id` in `Organization` table.
+     - `item_id` is a foreign key referencing `id` in `Item` table.
+
+### Coding Standards
+
+The database schema and SQL queries adhere to coding standards by using proper naming conventions, data types, and constraints. The tables are normalized to reduce redundancy and ensure data integrity. Foreign key constraints are used to maintain referential integrity between tables.
+
 ## Usage
 
 1. Clone the repository:
