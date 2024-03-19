@@ -3,11 +3,13 @@ const bodyParser = express.json();
 const PricingService = require("./pricing.service");
 const swaggerUi = require("swagger-ui-express");
 const swaggerJsdoc = require("swagger-jsdoc");
+const cors = require("cors");
 
 const app = express();
 const port = 3000;
 
 app.use(bodyParser);
+app.use(cors());
 
 const pricingService = new PricingService();
 
