@@ -9,7 +9,11 @@ const app = express();
 const port = 3000;
 
 app.use(bodyParser);
-app.use(cors());
+app.use(
+  cors({
+    origin: "http://localhost:3000/",
+  })
+);
 
 const pricingService = new PricingService();
 
