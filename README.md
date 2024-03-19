@@ -57,3 +57,19 @@ This repository contains the backend implementation for a food delivery app, foc
    ```bash
    git clone https://github.com/yourusername/food-delivery-backend.git
    ```
+
+2. Install dependencies:
+
+   ```bash
+   npm install
+   ```
+
+3. Configure the database connection in database.js.
+
+4. Run the application:
+
+   ```bash
+   node app.js
+   ```
+
+5. Access the API documentation at http://localhost:3000/api-docs.
